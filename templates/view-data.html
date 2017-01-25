@@ -1,0 +1,53 @@
+<div ng-controller="w3MainCtrl" class="container">
+
+    <!-- Menus -->
+    <nav class="navbar navbar-default " style=" height:50%;z-index: 1000">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse " data-toggle="collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav nav-tabs  nav-justified navbar-right">
+                    <li ng-repeat="menu in menuNames | filter:name" id="{{menu}}">
+                        <a href="#/{{menu.name}}">{{menu.images}}{{menu.name}}</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<div class="row" style="width: 1300px;">
+    <div class="right-div col-md-3 col-sm-3 col-xs-3" style="height: 850px; overflow-y: scroll">
+        <div ng-click="gotoBusiness(item.url)" ng-repeat="item in fetchData" style=" border:#ff5722 solid 3px"
+             class="item-detail direct-item " data-target="#slideshow" data-slide-to="{{$index}}" id="{{item.id}}">
+            <img ng-src="{{item.photo}}" class="direct-thumb">
+            <div class="direct-category">{{$index + 1}}</div><br>
+            <div class="wrap-direct-meta" style="height: 160px; text-align: center;margin-top: 10px;"><span></span>
+                <h3 class="item-name item-styles">
+                    {{item.name}}
+                </h3>
+                <span class="label-bottom"></span>
+                <div class="item-name item-address">{{item.address}}
+                    <div>{{item.city}}</div>
+                </div>
+                <div class="direct-rate">
+                    {{item.rating}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-9 ">
+        <div id="map" style="width: 100%; height: 850px;"></div>
+    </div>
+
+</div>

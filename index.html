@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="m3wApp" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>app</title>
+
+    <!-- Bootstrap Core CSS -->
+    <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://demo.designinvento.net/classiads-new/wp-content/themes/classiads/css/bootstrap-responsive.css?ver=2.3.2"
+          rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqrm1LI-8ddEp54fYxIEAP1sF64rc4wMU" async defer></script>
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <script type="text/javascript" src="js/controllers/dataCtrl.js"></script>
+</head>
+
+<body ng-controller="w3MainCtrl">
+<div class="container">
+    <div id="header" class="row header-con img-responsive">
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <img src="images/logo.png" style="height: 100px; width: 100px; margin-left: 15px"/>
+        </div>
+        <div class="col-md-5 col-sm-5 col-xs-5">
+            <h1 class="title">Who What Where?</h1>
+        </div>
+        <div id="search">
+            <form class="form-inline searchposition" role="search">
+                <span class="glyphicon glyphicon-search" style="top: 30px;"></span>
+
+                <input type="text" id="location" value="Sydney" class="form-control" placeholder="Search">
+
+                <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="data.model"
+                        ng-change="update()">
+                    <option ng-repeat="option in data.availableOptions" ng-selected="{{ $index == 0 }}"
+                            ngvalue="{{option.name}}">{{option.name}}
+                    </option>
+                </select>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <ng-view></ng-view>
+    </div>
+</div>
+
+</body>
+</html>
